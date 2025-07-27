@@ -2,6 +2,10 @@
 
 This repository is maintained by [Laclede's LAN](https://lacledeslan.com). Its contents are heavily tailored and tweaked for use at our charity LAN-Parties. For third-parties we recommend using this repo only as a reference example and then building your own using [gamesvr-hl2dm](https://github.com/LacledesLAN/gamesvr-hl2dm) as the base image for your customized server.
 
+## Important Note Regarding `!sm_admin`
+
+Valve published an update in July 2018 that switched the default value of `cl_showpluginmessages` ConVar to `0`. This setting determines whether instances of a special set of exposed plugin-like networked dialogs (e.g. SourceMod menus, but not limited to) are allowed to display on the client. So, this change caused all new HL2:DM installs not to allow these dialogs by default anymore.  To enabled `!sm_admin` menus in your client, set the cvar `cl_showpluginmessages` to `1`.
+
 ## Linux Container
 [![](https://images.microbadger.com/badges/version/lacledeslan/gamesvr-hl2dm-freeplay.svg)](https://microbadger.com/images/lacledeslan/gamesvr-hl2dm-freeplay "Get your own version badge on microbadger.com")
 [![](https://images.microbadger.com/badges/image/lacledeslan/gamesvr-hl2dm-freeplay.svg)](https://microbadger.com/images/lacledeslan/gamesvr-hl2dm-freeplay "Get your own image badge on microbadger.com")
