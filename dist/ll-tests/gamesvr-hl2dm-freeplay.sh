@@ -2,7 +2,7 @@
 
 #####################################################################################################
 ### CONFIG VARS #####################################################################################
-declare LLTEST_CMD="/app/srcds_run -game hl2mp +map dm_overwatch -insecure -norestart +sv_lan 1";
+declare LLTEST_CMD="/app/srcds_run -game hl2mp +map dm_fool_day -insecure -norestart +sv_lan 1";
 declare LLTEST_NAME="gamesvr-hl2dm-freeplay-$(date '+%H%M%S')";
 #####################################################################################################
 #####################################################################################################
@@ -150,9 +150,10 @@ should_have 'Using default binary: ./srcds_linux' 'Server started';
 should_lack 'Server restart in 10 seconds' 'Server is not boot-looping';
 should_lack 'Running the dedicated server as root' 'Server is not running under root';
 should_have 'server_srv.so loaded for "Half-Life 2 Deathmatch"' 'srcds_run loaded Half-Life 2: Deathmatch';
-should_have 'Server is hibernating' 'srcds_run succesfully hibernated';
+should_have 'Server is hibernating' 'srcds_run successfully hibernated';
 should_lack 'WARNING: Failed to load 32-bit libtinfo.so.5 or libncurses.so.5' 'Has dependency lib32tinfo5';
 should_lack 'steamclient.so: cannot open shared object file: No such file or directory' 'steamclient.so hack is working';
+should_lack 'map load failed: dm_fool_day not found or invalid' 'Able to load custom map dm_fool_day';
 
 # Check SourceMod/MetaMod plugins
 should_have '===BEGIN SERVER STATUS===' 'LL status mod ran';

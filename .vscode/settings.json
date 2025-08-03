@@ -8,8 +8,15 @@
         "ghcr",
         "laclede's",
         "lacledeslan",
+        "LOGFILE",
+        "Metamod",
         "qemu",
+        "sourcemod",
+        "srcds",
+        "steamclient",
+        "steamcmd",
         "submodules",
+        "usermod",
         "username"
     ]
 }
