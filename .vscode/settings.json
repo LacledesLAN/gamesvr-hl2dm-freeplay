@@ -3,6 +3,7 @@
         "buildnode",
         "deathmatch",
         "dockerhub",
+        "Dockerized",
         "freeplay",
         "gamesvr",
         "ghcr",
@@ -16,6 +17,7 @@
         "steamclient",
         "steamcmd",
         "submodules",
+        "usercon",
         "usermod",
         "username"
     ]
