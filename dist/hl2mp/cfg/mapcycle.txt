@@ -3,7 +3,6 @@ dm_bk_lambda_box_rc1
 dm_bwo_parking_np
 dm_crossfire_final
 dm_datacore
-dm_fool_day
 DM_Gothic_UTclassic_v7b
 dm_greenhouse
 dm_lockdown
