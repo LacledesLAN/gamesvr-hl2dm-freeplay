@@ -17,3 +17,6 @@ dm_runoff
 dm_steamlab
 dm_tech
 dm_underpass
+dm_cement_fortress_betav25
+dm_the_pit_rc1
+dm_avalon_b1
