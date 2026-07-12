@@ -1,6 +1,3 @@
-[submodule "sourcemod.linux"]
-	path = sourcemod.linux
-	url = https://github.com/LacledesLAN/sourcemod.linux
-[submodule "sourcemod-configs"]
-	path = sourcemod-configs
-	url = https://github.com/LacledesLAN/sourcemod-configs
+[submodule "dist/sourcemod-custom-assets"]
+	path = dist/sourcemod-custom-assets
+	url = https://github.com/LacledesLAN/sourcemod-custom-assets
