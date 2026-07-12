@@ -1,6 +1,6 @@
 # Laclede's LAN Half-Life 2: Deathmatch Dedicated Freeplay Server in Docker
 
-![Laclede's LAN Half-Life 2: Deathmatch Dedicated Freeplay Server](https://raw.githubusercontent.com/LacledesLAN/gamesvr-hl2dm-freeplay/master/.misc/banner-hl2dm-freeplay.png "Laclede's LAN Half-Life 2: Deathmatch Dedicated Freeplay Server")
+![Laclede's LAN Half-Life 2: Deathmatch Dedicated Freeplay Server](https://raw.githubusercontent.com/LacledesLAN/gamesvr-hl2dm-freeplay/refs/heads/master/.documentation/banner-hl2dm-freeplay.png "Laclede's LAN Half-Life 2: Deathmatch Dedicated Freeplay Server")
 
 This repository is maintained by [Laclede's LAN](https://lacledeslan.com). Its contents are heavily tailored and tweaked
 for use at our charity LAN-Parties. For third-parties we recommend using this repo only as a reference example and then
