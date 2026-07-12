@@ -6,7 +6,7 @@
         {
             "label": "Linux - Build Image",
             "type": "shell",
-            "command": "docker pull lacledeslan/gamesvr-hl2dm; docker build . -f linux.Dockerfile -t lltest/gamesvr-hl2dm-freeplay --no-cache --build-arg BUILDNODE=$env:computername;",
+            "command": "docker build . --pull -f linux.Dockerfile -t gamesvr-hl2dm-freeplay --no-cache --build-arg BUILDNODE=$env:computername;",
             "dependsOn": "Download git submodules",
             "group": "build",
             "problemMatcher": [],
@@ -15,7 +15,7 @@
         {
             "label": "Build & Execute Self Tests",
             "type": "shell",
-            "command": "docker run -it --rm lltest/gamesvr-hl2dm-freeplay ./ll-tests/gamesvr-hl2dm-freeplay.sh;",
+            "command": "docker run -it --rm gamesvr-hl2dm-freeplay ./ll-tests/gamesvr-hl2dm-freeplay.sh;",
             "dependsOn": "Linux - Build Image",
             "group": {
                 "kind": "build",
@@ -27,7 +27,7 @@
         {
             "label": "Build & Run Interactive Server",
             "type": "shell",
-            "command": "docker run -it -p 27015:27015/tcp -p 27015:27015/udp lltest/gamesvr-hl2dm-freeplay ./srcds_run -game hl2mp +map dm_overwatch +sv_lan 1 +usercon +rcon_password \"test123\";",
+            "command": "docker run --rm -it -p 27015:27015/tcp -p 27015:27015/udp gamesvr-hl2dm-freeplay ./srcds_run -game hl2mp +map dm_overwatch +sv_lan 1 +usercon +rcon_password \"test123\";",
             "dependsOn": "Linux - Build Image",
             "group": "build",
             "problemMatcher": [],
@@ -36,7 +36,7 @@
         {
             "label": "Build & Shell In",
             "type": "shell",
-            "command": "docker run -it --net=host --rm lltest/gamesvr-hl2dm-freeplay;",
+            "command": "docker run -it --net=host --rm gamesvr-hl2dm-freeplay;",
             "dependsOn": "Linux - Build Image",
             "group": "build",
             "problemMatcher": [],
@@ -45,7 +45,7 @@
         {
             "label": "Download git submodules",
             "type": "shell",
-            "command": "git submodule foreach git pull origin master;",
+            "command": "git submodule foreach git pull origin main;",
             "problemMatcher": [],
             "promptOnClose": true
         },
