@@ -57,8 +57,7 @@ LABEL maintainer="Laclede's LAN <contact @lacledeslan.com>" \
 COPY --chown=HL2DM:root --from=ll-content-fetcher /output /app
 
 # UPDATE USERNAME & ensure permissions
-RUN usermod -l HL2DMFreeplay HL2DM && \
-    chmod +x /app/ll-tests/*.sh;
+RUN usermod -l HL2DMFreeplay HL2DM;
 
 USER HL2DMFreeplay
 
