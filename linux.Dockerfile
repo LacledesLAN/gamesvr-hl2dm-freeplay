@@ -15,18 +15,22 @@ RUN echo $'\n\nDownloading LL custom content from content server' && \
 
 # Metamod:Source (from https://www.metamodsource.net/)
 COPY ./dist/mmsource-1.12.0-git1224-linux /output/hl2mp/
+
 RUN true
 
 # Sourcemod (from https://www.sourcemod.net/)
 COPY ./dist/sourcemod-1.13.0-git7379-linux /output/hl2mp/
+
 RUN true
 
 # Sourcemod Simple Admins for LL IRL LAN Parties
 COPY dist/sourcemod-custom-assets/sourcemod/configs/ll_lan_admins/admins_simple.ini /output/hl2mp/addons/sourcemod/configs/admins_simple.ini
+
 RUN true
 
 # Sourcemod Custom plugin - log connections
 COPY dist/sourcemod-custom-assets/sourcemod/plugins/logconnections/logconnections-ll.smx /output/hl2mp/addons/sourcemod/plugins
+
 RUN true
 
 # Sourcemod Custom plugin - server status
@@ -34,25 +38,27 @@ COPY dist/sourcemod-custom-assets/sourcemod/plugins/serverstatus/serverstatus-ll
 
 # Game content and configs
 COPY ./dist/hl2mp /output/hl2mp/
+
 RUN true
 
-#=======================================================================
 
+#---------------------------------
 FROM lacledeslan/gamesvr-hl2dm
 
 HEALTHCHECK NONE
 
-ARG BUILDNODE="unspecified"
-ARG SOURCE_COMMIT="unspecified"
+ARG BUILD_DATE=unspecified \
+    BUILD_NODE=unspecified \
+    GIT_REVISION=unspecified
 
-LABEL maintainer="Laclede's LAN <contact @lacledeslan.com>" \
-      com.lacledeslan.build-node=$BUILDNODE \
-      org.label-schema.schema-version="1.0" \
-      org.label-schema.url="https://github.com/LacledesLAN/README.1ST" \
-      org.label-schema.vcs-ref=$SOURCE_COMMIT \
-      org.label-schema.vendor="Laclede's LAN" \
-      org.label-schema.description="LL Half-Life 2 Deathmatch Dedicated Freeplay Server" \
-      org.label-schema.vcs-url="https://github.com/LacledesLAN/gamesvr-hl2dm-freeplay"
+LABEL architecture="amd64" \
+      com.lacledeslan.build-node="$BUILD_NODE" \
+      maintainer="Laclede's LAN <contact@lacledeslan.com>" \
+      org.opencontainers.image.created="$BUILD_DATE" \
+      org.opencontainers.image.description="LL Half-Life 2 Deathmatch Dedicated Freeplay Server" \
+      org.opencontainers.image.revision="$GIT_REVISION" \
+      org.opencontainers.image.source="https://github.com/LacledesLAN/gamesvr-hl2dm-freeplay" \
+      org.opencontainers.image.vendor="Laclede's LAN"
 
 COPY --chown=HL2DM:root --from=ll-content-fetcher /output /app
 
@@ -64,5 +70,3 @@ USER HL2DMFreeplay
 WORKDIR /app
 
 CMD ["/bin/bash"]
-
-ONBUILD USER root
