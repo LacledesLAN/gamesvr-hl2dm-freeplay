@@ -1,11 +1,11 @@
 FROM lacledeslan/steamcmd AS ll-content-fetcher
 
-ARG contentServer=content.lacledeslan.net
+ARG CONTENT_SERVER=content.lacledeslan.net
 
 RUN echo $'\n\nDownloading LL custom content from content server' && \
         mkdir --parents /tmp/maps/ && \
         cd /tmp/maps/ && \
-        wget -rkpN -l 1 -nH  --no-verbose --cut-dirs=3 -R "*.htm*" -e robots=off "http://"$contentServer"/fastDownloads/hl2dm/maps/" && \
+        wget -rkpN -l 1 -nH  --no-verbose --cut-dirs=3 -R "*.htm*" -e robots=off "http://"$CONTENT_SERVER"/fastDownloads/hl2dm/maps/" && \
     echo "Decompressing downloaded content" && \
         bzip2 --decompress /tmp/maps/*.bz2 && \
     echo "Moving uncompressed files to destination" && \
